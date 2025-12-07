@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Туристичне спорядження</title>
+<style>
+body{font-family:Arial;margin:0;background:#f4f4f4}
+header{display:flex;justify-content:space-between;align-items:center;padding:20px;background:#fff;box-shadow:0 2px 5px rgba(0,0,0,0.1)}
+.products{display:flex;gap:20px;justify-content:center;margin-top:30px}
+.card{background:#fff;padding:15px;border-radius:10px;width:220px;box-shadow:0 2px 5px rgba(0,0,0,0.1);text-align:center}
+
+.prod-img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:10px;
+}
+
+button{padding:10px 15px;border:none;border-radius:5px;background:#4caf50;color:#fff;cursor:pointer}
+#cartIcon{cursor:pointer;font-size:20px;margin-right:20px}
+</style>
+</head>
+<body>
+<header>
+<h2>Туристичне спорядження</h2>
+<div id="cartIcon">🛒 <span id="cartCount">0</span></div>
+</header>
+
+<div class="products">
+    <!-- 1. Намет -->
+    <div class="card">
+        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQT8sdVKBgskEwMzCuN7kzTMTq0QLVBbtzCE5hIPpTjtKJF2aklazV8EALcxzN_poK9HEhyQDK75eW9rufvtdbnaFmUBPrn6pdZzAyK29DEH5wwiqOp-85Mo_LirxY8TuVjI6q9MP82OQ&usqp=CAc" class="prod-img">
+        <h3>Намет 2-місний</h3>
+        <p class="price">1500 грн</p>
+        <button onclick="openQuantityModal('Намет 2-місний',1500)">Додати в кошик</button>
+    </div>
+
+    <!-- 2. Спальний мішок -->
+    <div class="card">
+        <img src="https://mirshop.com.ua/image/cache/catalog/newcatalog/6882788484-kempingovyj-spalnyj-meshok-600x600.jpg" class="prod-img">
+        <h3>Спальний мішок</h3>
+        <p class="price">900 грн</p>
+        <button onclick="openQuantityModal('Спальний мішок',900)">Додати в кошик</button>
+    </div>
+
+    <!-- 3. Рюкзак -->
+    <div class="card">
+        <img src="https://likebags.com.ua/upload/resize_cache/iblock/0f4/1024_768_10c2be5e6b6a723a9aa680b60ccca14de/turistichniy_ryukzak_taktichniy_chorniy_50l_darvall_lb_459.jpg" class="prod-img">
+        <h3>Рюкзак туристичний</h3>
+        <p class="price">1200 грн</p>
+        <button onclick="openQuantityModal('Рюкзак туристичний',1200)">Додати в кошик</button>
+    </div>
+</div>
+
+</body>
+</html>
+<!-- КОШИК -->
+<div id="cart" class="cart">
+    <h2>Ваш кошик</h2>
+    <ul id="cartList"></ul>
+    <p><strong>Разом: </strong><span id="totalPrice">0</span> грн</p>
+</div>
+
+<!-- МОДАЛЬНЕ ВІКНО -->
+<div id="quantityModal" class="modal">
+    <div class="modal-content">
+        <h3 id="modalProductName"></h3>
+        <p>Ціна: <span id="modalProductPrice"></span> грн</p>
+
+        <label>Кількість:</label>
+        <input type="number" id="quantityInput" value="1" min="1">
+
+        <button onclick="addToCart()">Підтвердити</button>
+        <button onclick="closeModal()">Відмінити</button>
+    </div>
+</div>
